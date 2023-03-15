@@ -10,7 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.lastfmapp.Model.Entitis.Artists;
+import com.example.lastfmapp.Model.Entitis.Image;
 import com.example.lastfmapp.R;
 
 import java.util.List;
@@ -38,6 +41,14 @@ public class AdapterPopularArtists extends RecyclerView.Adapter<AdapterPopularAr
     @Override
     public void onBindViewHolder(@NonNull AdapterPopularArtists.viewHolderPA holder, int position) {
 
+        Artists artists= artistsList.get(position);
+        holder.nombre.setText(artists.getName());
+        holder.oyentes.setText(artists.getListeners());
+        holder.url.setText(artists.getUrl());
+        String urlImage= artists.getImage().get(2).getText();
+        Glide.with(context).load(urlImage).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.img);
+
+
     }
 
     @Override
@@ -56,8 +67,6 @@ public class AdapterPopularArtists extends RecyclerView.Adapter<AdapterPopularAr
             oyentes= itemView.findViewById(R.id.oyentesPA);
             url= itemView.findViewById(R.id.urlPA);
             img= itemView.findViewById(R.id.imagePA);
-
-
 
         }
     }
