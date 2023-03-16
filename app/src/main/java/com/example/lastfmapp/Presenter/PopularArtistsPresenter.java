@@ -1,9 +1,8 @@
 package com.example.lastfmapp.Presenter;
 
 import com.example.lastfmapp.Interface.PopularArtistsInterface;
-import com.example.lastfmapp.Model.Entitis.Artists;
+import com.example.lastfmapp.Model.PopularArtists.Artists;
 import com.example.lastfmapp.Model.PopularArtistsInteractor;
-import com.example.lastfmapp.View.PopularArtists;
 
 import java.util.List;
 

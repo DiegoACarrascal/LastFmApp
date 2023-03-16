@@ -3,9 +3,9 @@ package com.example.lastfmapp.Model;
 import android.util.Log;
 
 import com.example.lastfmapp.Interface.PopularArtistsInterface;
-import com.example.lastfmapp.Model.Entitis.Artists;
-import com.example.lastfmapp.Model.Entitis.HeaderApi;
-import com.example.lastfmapp.Model.Entitis.TopArtists;
+import com.example.lastfmapp.Model.PopularArtists.Artists;
+import com.example.lastfmapp.Model.PopularArtists.HeaderApi;
+import com.example.lastfmapp.Model.PopularArtists.TopArtists;
 import com.example.lastfmapp.Rest.ApiAdapter;
 
 import java.util.List;

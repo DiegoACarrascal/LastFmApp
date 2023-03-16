@@ -1,6 +1,6 @@
 package com.example.lastfmapp.Interface;
 
-import com.example.lastfmapp.Model.Entitis.HeaderApi;
+import com.example.lastfmapp.Model.PopularArtists.HeaderApi;
 import com.example.lastfmapp.Rest.EndPoint;
 
 import retrofit2.Call;

@@ -12,8 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.lastfmapp.Model.Entitis.Artists;
-import com.example.lastfmapp.Model.Entitis.Image;
+import com.example.lastfmapp.Model.PopularArtists.Artists;
 import com.example.lastfmapp.R;
 
 import java.util.List;

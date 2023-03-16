@@ -1,8 +1,6 @@
-package com.example.lastfmapp.Model.Entitis;
+package com.example.lastfmapp.Model.PopularArtists;
 
 import com.google.gson.annotations.SerializedName;
-
-import java.io.Serializable;
 
 public class Image  {
 
