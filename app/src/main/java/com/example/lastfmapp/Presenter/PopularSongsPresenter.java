@@ -1,8 +1,11 @@
 package com.example.lastfmapp.Presenter;
 
 import com.example.lastfmapp.Interface.PopularSongsInterface;
+import com.example.lastfmapp.Model.PopularSongs.Track;
 import com.example.lastfmapp.Model.PopularSongsInteractor;
 import com.example.lastfmapp.View.PopularSongs;
+
+import java.util.List;
 
 public class PopularSongsPresenter implements PopularSongsInterface.InterfacePresenter {
 
@@ -19,12 +22,14 @@ public class PopularSongsPresenter implements PopularSongsInterface.InterfacePre
     }
 
     @Override
-    public void requestData() {
+    public void requestData(String nameartista) {
+        popularSongsInteractor.requestData(nameartista);
 
     }
 
     @Override
-    public void successfulQuery() {
+    public void successfulQuery(List<Track> tracks) {
+        interfaceView.successfulQuery(tracks);
 
     }
 

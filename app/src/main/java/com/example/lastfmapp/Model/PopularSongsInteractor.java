@@ -1,8 +1,17 @@
 package com.example.lastfmapp.Model;
 
+import android.util.Log;
+
 import com.example.lastfmapp.Interface.PopularSongsInterface;
+import com.example.lastfmapp.Model.PopularArtists.Artists;
+import com.example.lastfmapp.Model.PopularArtists.HeaderApi;
+import com.example.lastfmapp.Model.PopularArtists.TopArtists;
 import com.example.lastfmapp.Model.PopularSongs.HeaderSongs;
+import com.example.lastfmapp.Model.PopularSongs.TopSongs;
+import com.example.lastfmapp.Model.PopularSongs.Track;
 import com.example.lastfmapp.Rest.ApiAdapter;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,12 +28,31 @@ public class PopularSongsInteractor implements PopularSongsInterface.InterfaceIn
     }
 
     @Override
-    public void requestData() {
+    public void requestData(String nameartista) {
 
-        /*Call<HeaderSongs> headerSongsCall= ApiAdapter.getApiService().getCancionesPopulares();
+        Call<HeaderSongs> headerSongsCall= ApiAdapter.getApiService().getCancionesPopulares(nameartista);
         headerSongsCall.enqueue(new Callback<HeaderSongs>() {
             @Override
             public void onResponse(Call<HeaderSongs> call, Response<HeaderSongs> response) {
+
+                if(!response.isSuccessful()){
+                    onFailureResult();
+                }
+
+                HeaderSongs list= response.body();
+                TopSongs topSongs= list.getTopSongs();
+                List<Track> tracks=topSongs.getTrack();
+
+                if(tracks.size()>0){
+                    successfulQuery(tracks);
+                }else{
+                    onFailureResult();
+                    Log.e("onResponseProduct", "Response is null");
+                }
+
+
+
+
 
             }
 
@@ -32,14 +60,15 @@ public class PopularSongsInteractor implements PopularSongsInterface.InterfaceIn
             public void onFailure(Call<HeaderSongs> call, Throwable t) {
 
             }
-        });*/
+        });
 
 
 
     }
 
     @Override
-    public void successfulQuery() {
+    public void successfulQuery(List<Track> tracks) {
+        interfacePresenter.successfulQuery(tracks);
 
     }
 

@@ -7,6 +7,7 @@ import com.example.lastfmapp.Rest.EndPoint;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiService {
 
@@ -15,7 +16,7 @@ public interface ApiService {
     Call<HeaderApi> obtenerArtistasPopulares();
 
     @GET(EndPoint.GET_POPULAR_SONGS)
-    Call<HeaderSongs> getCancionesPopulares(@Path("nameartista") String nameartista);
+    Call<HeaderSongs> getCancionesPopulares(@Query("artist") String nameartista);
 
 
 

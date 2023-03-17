@@ -1,6 +1,7 @@
 package com.example.lastfmapp.Interface;
 
 import com.example.lastfmapp.Model.PopularArtists.Artists;
+import com.example.lastfmapp.Model.PopularSongs.Track;
 
 import java.util.List;
 
@@ -8,8 +9,8 @@ public interface PopularSongsInterface {
 
     interface InterfaceView{
 
-        void requestData();
-        void successfulQuery();
+        void requestData(String nameartista);
+        void successfulQuery(List<Track> tracks);
         void onFailureResult();
     }
 
@@ -17,17 +18,17 @@ public interface PopularSongsInterface {
     interface InterfacePresenter{
 
 
-        void requestData();
-        void successfulQuery();
+        void requestData(String nameartista);
+        void successfulQuery(List<Track> tracks);
         void onFailureResult();
 
     }
 
     interface InterfaceInteractor{
 
-        void requestData();
+        void requestData(String nameartista);
 
-        void successfulQuery();
+        void successfulQuery(List<Track> tracks);
 
         void onFailureResult();
 
