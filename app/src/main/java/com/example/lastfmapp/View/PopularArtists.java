@@ -46,10 +46,6 @@ public class PopularArtists extends AppCompatActivity implements PopularArtistsI
         recyclerView.setAdapter(adapterPopularArtists);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
-
-
-
     }
 
     @Override

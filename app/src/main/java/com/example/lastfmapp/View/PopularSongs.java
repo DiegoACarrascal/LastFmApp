@@ -1,6 +1,7 @@
 package com.example.lastfmapp.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import com.example.lastfmapp.Interface.PopularSongsInterface;
 import com.example.lastfmapp.Model.PopularSongs.Track;
 import com.example.lastfmapp.Presenter.PopularSongsPresenter;
 import com.example.lastfmapp.R;
+import com.example.lastfmapp.View.Adapter.AdapterPopularSongs;
 
 import java.util.List;
 
@@ -38,6 +40,9 @@ public class PopularSongs extends AppCompatActivity implements PopularSongsInter
 
     @Override
     public void successfulQuery(List<Track> tracks) {
+        AdapterPopularSongs adapterPopularSongs= new AdapterPopularSongs(tracks,this);
+        recyclerView.setAdapter(adapterPopularSongs);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
 
