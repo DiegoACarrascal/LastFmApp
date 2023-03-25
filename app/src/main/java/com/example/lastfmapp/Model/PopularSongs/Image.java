@@ -1,10 +1,9 @@
-package com.example.lastfmapp.Model.Entitis;
+package com.example.lastfmapp.Model.PopularSongs;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
+public class Image {
 
-public class Image  {
 
     @SerializedName("#text")
     private String text;

@@ -1,10 +1,7 @@
-package com.example.lastfmapp.Model.Entitis;
+package com.example.lastfmapp.Model.PopularArtists;
 
 import com.google.gson.annotations.SerializedName;
 
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class TopArtists {

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.lastfmapp.Interface.PopularArtistsInterface;
-import com.example.lastfmapp.Model.Entitis.Artists;
+import com.example.lastfmapp.Model.PopularArtists.Artists;
 import com.example.lastfmapp.Presenter.PopularArtistsPresenter;
 import com.example.lastfmapp.R;
 import com.example.lastfmapp.View.Adapter.AdapterPopularArtists;
@@ -45,10 +45,6 @@ public class PopularArtists extends AppCompatActivity implements PopularArtistsI
         adapterPopularArtists = new AdapterPopularArtists(artists,this);
         recyclerView.setAdapter(adapterPopularArtists);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
-
-
 
     }
 

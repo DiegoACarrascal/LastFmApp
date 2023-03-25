@@ -1,6 +1,7 @@
 package com.example.lastfmapp.View.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.lastfmapp.Model.Entitis.Artists;
-import com.example.lastfmapp.Model.Entitis.Image;
+import com.example.lastfmapp.Model.PopularArtists.Artists;
 import com.example.lastfmapp.R;
+import com.example.lastfmapp.View.PopularSongs;
 
 import java.util.List;
 
@@ -47,6 +48,14 @@ public class AdapterPopularArtists extends RecyclerView.Adapter<AdapterPopularAr
         holder.url.setText(artists.getUrl());
         String urlImage= artists.getImage().get(2).getText();
         Glide.with(context).load(urlImage).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.img);
+
+        holder.itemView.setOnClickListener(view -> {
+
+            Intent intent= new Intent(context, PopularSongs.class);
+            intent.putExtra("nombre",artists.getName());
+            context.startActivity(intent);
+
+        });
 
 
     }

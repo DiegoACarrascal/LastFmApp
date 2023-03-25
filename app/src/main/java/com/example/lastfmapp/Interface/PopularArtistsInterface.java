@@ -1,6 +1,6 @@
 package com.example.lastfmapp.Interface;
 
-import com.example.lastfmapp.Model.Entitis.Artists;
+import com.example.lastfmapp.Model.PopularArtists.Artists;
 
 import java.util.List;
 

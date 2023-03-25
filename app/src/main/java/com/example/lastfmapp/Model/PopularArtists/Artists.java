@@ -1,6 +1,5 @@
-package com.example.lastfmapp.Model.Entitis;
+package com.example.lastfmapp.Model.PopularArtists;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Artists {
