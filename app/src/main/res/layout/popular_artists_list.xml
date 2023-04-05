@@ -66,8 +66,7 @@
                     android:id="@+id/oyentesPA"
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold">
+                    android:layout_height="wrap_content">
 
                 </TextView>
 
@@ -91,7 +90,6 @@
                     android:id="@+id/urlPA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
                     android:layout_marginStart="2dp"
                     android:layout_marginEnd="6dp"
                     android:gravity="center">

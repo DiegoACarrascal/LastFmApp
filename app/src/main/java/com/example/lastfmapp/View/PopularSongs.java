@@ -1,6 +1,7 @@
 package com.example.lastfmapp.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,7 +43,7 @@ public class PopularSongs extends AppCompatActivity implements PopularSongsInter
     public void successfulQuery(List<Track> tracks) {
         AdapterPopularSongs adapterPopularSongs= new AdapterPopularSongs(tracks,this);
         recyclerView.setAdapter(adapterPopularSongs);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,1));
 
     }
 
