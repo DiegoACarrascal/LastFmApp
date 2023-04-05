@@ -1,5 +1,6 @@
 package com.example.lastfmapp.Model;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.example.lastfmapp.Interface.PopularArtistsInterface;
@@ -7,6 +8,7 @@ import com.example.lastfmapp.Model.PopularArtists.Artists;
 import com.example.lastfmapp.Model.PopularArtists.HeaderApi;
 import com.example.lastfmapp.Model.PopularArtists.TopArtists;
 import com.example.lastfmapp.Rest.ApiAdapter;
+import com.example.lastfmapp.Tools.ConexionInternet;
 
 import java.util.List;
 
@@ -17,16 +19,25 @@ import retrofit2.Response;
 public class PopularArtistsInteractor implements PopularArtistsInterface.InterfaceInteractor {
 
     private PopularArtistsInterface.InterfacePresenter interfacePresenter;
+    private Context context;
 
 
-    public PopularArtistsInteractor (PopularArtistsInterface.InterfacePresenter view){
+    public PopularArtistsInteractor (PopularArtistsInterface.InterfacePresenter view, Context context){
         this.interfacePresenter = view;
+        this.context=context;
     }
 
 
 
     @Override
     public void requestData() {
+
+
+        if(!ConexionInternet.isOutputInternet(context)){
+            onFailureResult();
+        }
+
+
 
         Call<HeaderApi> topArtistsCall= ApiAdapter.getApiService().obtenerArtistasPopulares();
         topArtistsCall.enqueue(new Callback<HeaderApi>() {

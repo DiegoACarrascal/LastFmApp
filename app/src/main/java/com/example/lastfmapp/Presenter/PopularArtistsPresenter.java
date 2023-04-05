@@ -1,5 +1,7 @@
 package com.example.lastfmapp.Presenter;
 
+import android.content.Context;
+
 import com.example.lastfmapp.Interface.PopularArtistsInterface;
 import com.example.lastfmapp.Model.PopularArtists.Artists;
 import com.example.lastfmapp.Model.PopularArtistsInteractor;
@@ -12,8 +14,8 @@ public class PopularArtistsPresenter implements PopularArtistsInterface.Interfac
     private PopularArtistsInterface.InterfaceInteractor interfaceInteractor;
 
 
-    public PopularArtistsPresenter (PopularArtistsInterface.InterfaceView view){
-        this.interfaceInteractor = new PopularArtistsInteractor(this);
+    public PopularArtistsPresenter (PopularArtistsInterface.InterfaceView view,Context context){
+        this.interfaceInteractor = new PopularArtistsInteractor(this,context);
         this.interfaceView= view;
     }
 
