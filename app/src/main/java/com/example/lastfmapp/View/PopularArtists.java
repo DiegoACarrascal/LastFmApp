@@ -34,7 +34,18 @@ public class PopularArtists extends AppCompatActivity implements PopularArtistsI
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     private ConstraintLayout constraintLayout;
-    private BroadcastReceiver broadcastReceiver;
+    private BroadcastReceiver broadcastReceiver= new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (ConexionInternet.isOutputInternet(getApplicationContext())) {
+                progressBar.setVisibility(View.GONE);
+                constraintLayout.setVisibility(View.GONE);
+                requestData();
+            }
+            Log.i("tag","sarna");
+        }
+    };;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +66,6 @@ public class PopularArtists extends AppCompatActivity implements PopularArtistsI
 
     @Override
     public void successfulQuery(List<Artists> artists) {
-        unregisterReceiver(broadcastReceiver);
-        broadcastReceiver = null;
         progressBar.setVisibility(View.GONE);
         adapterPopularArtists = new AdapterPopularArtists(artists, this);
         recyclerView.setAdapter(adapterPopularArtists);
@@ -66,17 +75,6 @@ public class PopularArtists extends AppCompatActivity implements PopularArtistsI
 
     @Override
     public void onFailureResult() {
-         broadcastReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                if (ConexionInternet.isOutputInternet(getApplicationContext())) {
-                    progressBar.setVisibility(View.GONE);
-                    constraintLayout.setVisibility(View.GONE);
-                    requestData();
-                }
-                Log.i("tag","sarna");
-            }
-        };
         registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
         progressBar.setVisibility(View.GONE);
         constraintLayout.setVisibility(View.VISIBLE);
