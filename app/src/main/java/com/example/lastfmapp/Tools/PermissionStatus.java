@@ -10,6 +10,7 @@ import android.provider.Settings;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 
 
 public class PermissionStatus {
@@ -17,7 +18,7 @@ public class PermissionStatus {
     Activity activity;
 
     String[] permits =  new String[] {
-            WRITE_EXTERNAL_STORAGE, ACCESS_COARSE_LOCATION};
+            WRITE_EXTERNAL_STORAGE, ACCESS_COARSE_LOCATION,READ_EXTERNAL_STORAGE};
 
     public PermissionStatus(Context context, Activity activity) {
         this.context = context;

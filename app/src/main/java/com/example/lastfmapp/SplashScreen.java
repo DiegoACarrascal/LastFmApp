@@ -2,11 +2,13 @@ package com.example.lastfmapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
+import com.example.lastfmapp.Tools.Logger;
 import com.example.lastfmapp.Tools.PermissionStatus;
 import com.example.lastfmapp.View.PopularArtists;
 
@@ -14,6 +16,11 @@ public class SplashScreen extends AppCompatActivity {
 
     private PermissionStatus permissionStatus;
     private Boolean isIntent=false;
+
+    @Override
+    public Context getApplicationContext() {
+        return super.getApplicationContext();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +41,7 @@ public class SplashScreen extends AppCompatActivity {
 
         if(permissionStatus.validatePermissions() && isIntent){
             new Handler().postDelayed(() -> {
-                Log.i("SplashScreen", "Inicio app");
+                Logger.information("SplashScreen");
                 Intent i = new Intent(SplashScreen.this, PopularArtists.class);
                 startActivity(i);
                 finish();
